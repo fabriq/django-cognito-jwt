@@ -1,8 +1,8 @@
-.PHONY: install test upload docs
+`.PHONY: install test upload docs
 
 
 install:
-	pip install -e .[docs,test]
+	pip3 install -e .[docs,test]
 
 test:
 	py.test
@@ -11,7 +11,7 @@ retest:
 	py.test -vvv --lf
 
 coverage:
-	py.test --cov=django_cognito_jwt --cov-report=term-missing --cov-report=html
+	py.test --cov=django_c`gnito_jwt --cov-report=term-missing --cov-report=html
 
 docs:
 	$(MAKE) -C docs html

@@ -65,12 +65,12 @@ class TokenValidator:
         }
 
         # include audience validation if "aud" claim is provided in token payload
-        token_payload = jwt.decode(token, verify=False)
+        token_payload = jwt.decode(token, options={"verify_signature": False})
         if "aud" in token_payload:
             params.update({"audience": self.audience})
 
         try:
             jwt_data = jwt.decode(**params)
-        except (jwt.InvalidTokenError, jwt.ExpiredSignature, jwt.DecodeError) as exc:
+        except (jwt.InvalidTokenError, jwt.ExpiredSignatureError, jwt.DecodeError) as exc:
             raise TokenError(str(exc))
         return jwt_data
