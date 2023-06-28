@@ -11,7 +11,7 @@ retest:
 	py.test -vvv --lf
 
 coverage:
-	py.test --cov=django_c`gnito_jwt --cov-report=term-missing --cov-report=html
+	py.test --cov=django_cognito_jwt --cov-report=term-missing --cov-report=html
 
 docs:
 	$(MAKE) -C docs html
